@@ -65,9 +65,7 @@ python manage.py makemigrations
 python manage.py migrate
 python manage.py createsuperuser
 chown www-data:www-data /var/www/html/jobs_project/db.sqlite3
-´´´
-
-
+```
 
 ### Authors: Ghazal Tashakor (g.tashakor AT caos.uab.cat), Remo Suppi (Remo.Suppi AT uab.cat)
 #### Research Group: http://grupsderecerca.uab.cat/hpc4eas/
