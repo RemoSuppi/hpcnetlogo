@@ -22,7 +22,9 @@ apt-get install apache2 libssl-dev libapache2-mod-wsgi-py3 python3-django python
 pip3 install paramiko
 pip3 install django-bootstrap-form
 rm /usr/bin/python
-ln -s /usr/bin/python3.5 /usr/bin/python
+ln -s /usr/bin/python3.5 /usr/bin/python   
+# Note that some commands may generate errors with this link (python3.5).
+# Restore /usr/bin/python to original /usr/bin/python2.7
 
 ```
 2. Clone the repository:
@@ -31,7 +33,7 @@ ln -s /usr/bin/python3.5 /usr/bin/python
 git clone https://github.com/hpcnetlogo/hpcnetlogo.git
 cd hpcnetlogo
 mv jobs_project /var/www/html
-chown www-data:www-data /var/www/html/jobs_project
+chown -R www-data:www-data /var/www/html/jobs_project
 mv 000-default.conf /etc/apache2/sites-available
 systemctl restart apache2
 
