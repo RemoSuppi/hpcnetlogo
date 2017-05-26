@@ -1,0 +1,105 @@
+{% load bootstrap %}
+{% load staticfiles %}
+
+{% block content %}
+
+{% if form.errors %}
+
+<p class="err">Your username and password didn't match. Please try again.</p>
+
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p class="err">Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+    <p class="err">Please login to see this page.</p>
+    {% endif %}
+{% endif %}
+
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+<html>
+<head lang="en">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <meta charset="UTF-8">
+    <title></title>
+
+      <style>
+
+html { width: 100%; height:100%; overflow:hidden; }
+
+body { 
+	width: 100%;
+	height:100%;
+	font-family: sans-serif;
+	background: #ffffff;
+}
+.login { 
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin: -150px 0 0 -150px;
+	width:300px;
+	height:300px;
+}
+.login h1 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+
+input { 
+	width: 100%; 
+	margin-bottom: 10px; 
+	background: rgba(c,c,c,0.3);
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: #000;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+	transition: box-shadow .5s ease;
+}
+input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
+
+.buti { background-color: #5CBD5C; }
+.err { background-color: #5CBD5C;
+        width: 30%;
+        color: #000;
+        text-align: center;
+}
+
+    </style>
+</head>
+<body style="padding-top:60px">
+<div class="login">
+<div>
+  <td>{{ form.username.label_tag }}</td>
+  <td>{{ form.username }}</td>
+</div>
+<div>
+  <td>{{ form.password.label_tag }}</td>
+  <td>{{ form.password }}</td>
+</div>
+
+<div>
+  <input type="submit" value="login" class="buti" />
+  <input type="hidden" name="next" value="{{ next }}" />
+</div>
+</form>
+</div>
+{# Assumes you setup the password_reset view in your URLconf #}
+<!--
+<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+-->
+</body>
+</html>
+{% endblock %}
+

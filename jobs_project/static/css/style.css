@@ -1,0 +1,34 @@
+.withIcon.delete {
+    color: #BBBBBB;
+}
+
+.withIcon.delete:hover {
+    color: #7e7e7e;
+}
+
+.withIcon.start {
+    color: #2dcb75;
+}
+
+.withIcon.start a:hover {
+    color: #25934e;
+}
+
+.withIcon.stop {
+    color: #d5504d;
+}
+
+.withIcon.stop:hover {
+    color: #983535;
+}
+
+table{
+    text-align: center;
+}
+
+th{
+    text-align: center;
+}
+.btn-form{
+    min-width: 80px;
+}
