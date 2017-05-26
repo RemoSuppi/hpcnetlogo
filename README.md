@@ -54,6 +54,19 @@ If you use a MV (eg Virtualbox) without GUI in Linux, you can map the port 80 on
 5. Hpcnetlogo uses **Directory Lister** (http://www.directorylister.com ) to show the output files of netlogo execution. Please install it in you master node of your cluster and add, in the installation directory, a link to */home/user/netlogo-sge*. Then you need modify the file *jobs_project/job_manager/templates/job_manager/job_list.html* to introduce the correct URL of your button Output for directory lister. 
 
 * It is necessary to change the lines 25-27 of *jobs_project/job_manager/commands.py* in order to change the name of your queues (variable *cluster_string*) to adequate it to your queues names (in our system is cluster.q@clu\*.hpc.local). If you change the netlogo version or directories, please modify the scripts in the *jobs_project/job_manager/scripts* and line 23 of *jobs_project/job_manager/commands.py*. 
+* To init the data base (sqlite3):
+```
+cd /var/www/html/jobs_project
+rm db.sqlite3
+cd job_manager/migrations
+Delete all files *.py *.pyc but no delete __init__.py
+cd /var/www/html/jobs_project
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+chown www-data:www-data /var/www/html/jobs_project/db.sqlite3
+´´´
+
 
 
 ### Authors: Ghazal Tashakor (g.tashakor AT caos.uab.cat), Remo Suppi (Remo.Suppi AT uab.cat)
