@@ -9,7 +9,7 @@ This frontend uses:
 1. Directory Lister (http://www.directorylister.com ) to show the output files (result of execution).
 
 ### VirtualBox Sandbox
-1. Download hpcnetlogo VM for Virtualbox from [here](https://uab-my.sharepoint.com/personal/1004099_uab_cat/_layouts/15/guestaccess.aspx?docid=1fcbdba18f63b43a9902f75ef029f4af1&authkey=AUF8uTl3lJ7AR6PF_YEydow)
+1. Download hpcnetlogo VM for Virtualbox from [here](https://uab-my.sharepoint.com/personal/1004099_uab_cat/_layouts/15/guestaccess.aspx?docid=1d1900c189b0d4142bb61d50317a29e0d&authkey=Acb9mJd5dZO0d0M24CFPn1w)
 1. Import ova file in *File->Import Appliance* 
 1. Start the VM
 1. User & passwd (including root passwd): *hpcnetlogo*
