@@ -9,7 +9,7 @@ This frontend uses:
 1. Directory Lister (http://www.directorylister.com ) to show the output files (result of execution).
 
 ### VirtualBox Sandbox
-1. Download hpcnetlogo VM for Virtualbox from [here](https://uab-my.sharepoint.com/personal/1004099_uab_cat/_layouts/15/guestaccess.aspx?docid=1fcbdba18f63b43a9902f75ef029f4af1&authkey=AUF8uTl3lJ7AR6PF_YEydow)
+1. Download hpcnetlogo VM for Virtualbox (OVA format) from [here](https://drive.google.com/open?id=0B_Y2KqnOj4KpSkZMYnFpdldTeW8)
 1. Import ova file in *File->Import Appliance* 
 1. Start the VM
 1. User & passwd (including root passwd): *hpcnetlogo*
@@ -45,8 +45,7 @@ If you use a MV (eg Virtualbox) without GUI in Linux, you can map the port 80 on
   * **Run separate repetitions?**: if marked the repetitions of the BS will be executed in a different node of the Sge cluster.
   * **Model name**: experiment name in SGE Cluster. 
   * **Cluster Queue: \*|Node_Number**: \* all nodes in the SGE cluster, Number of queue in the SGE cluster. 
-  * **Email**
-  * **Hostname**: SGE submit node
+  * **Hostname**: SGE submit node (name.domain or IP)
   * **Username**: user in the SGE cluster (access by SSH).
   * **Password**: passwd of the user in the SGE cluster.
 
@@ -54,7 +53,7 @@ If you use a MV (eg Virtualbox) without GUI in Linux, you can map the port 80 on
 
 5. Hpcnetlogo uses **Directory Lister** (http://www.directorylister.com ) to show the output files of netlogo execution. Please install it in you master node of your cluster and add, in the installation directory, a link to */home/user/netlogo-sge*. Then you need modify the file *jobs_project/job_manager/templates/job_manager/job_list.html* to introduce the correct URL of your button Output for directory lister. 
 
-* If you change the netlogo version or directories, please modify the scripts in the *jobs_project/job_manager/scripts*. You need modify also the lines 100,101 of *jobs_project/job_manager/commands.py* in order to change the variable *cluster_string* to adequate it to your queues names in yor cluster  (in our system is cluster.q@clu*.hpc.local).
+* It is necessary to change the lines 25-27 of *jobs_project/job_manager/commands.py* in order to change the name of your queues (variable *cluster_string*) to adequate it to your queues names (in our system is cluster.q@clu\*.hpc.local). If you change the netlogo version or directories, please modify the scripts in the *jobs_project/job_manager/scripts* and line 23 of *jobs_project/job_manager/commands.py*. 
 
 
 ### Authors: Ghazal Tashakor (g.tashakor AT caos.uab.cat), Remo Suppi (Remo.Suppi AT uab.cat)
