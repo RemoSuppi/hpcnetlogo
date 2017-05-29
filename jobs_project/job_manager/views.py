@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from django.views.generic.edit import DeleteView
 from django.contrib.auth.decorators import login_required
-
+from django.http import HttpResponse
 from .forms import JobForm
 from .models import Job
 from . import commands
@@ -28,8 +28,7 @@ def run(request, id):
                                           data.cluster_number)
         data.save()
     except Exception as error:
-        print(error)
-        print("error: invalid nlogo file")
+        return HttpResponse("<H1>Error!</H1><h2>Sorry: User or Passwd (or Both) are not correct!!</h2><h3>Please, go aback, delete job & upload new job again...</h3>") 
     return redirect('job-list')
 
 @login_required
