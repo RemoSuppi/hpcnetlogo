@@ -28,7 +28,7 @@ def run(request, id):
                                           data.cluster_number)
         data.save()
     except Exception as error:
-        return HttpResponse("<H1>Error!</H1><h2>Sorry: User or Passwd (or Both) are not correct!!</h2><h3>Please, go aback, delete job & upload new job again...</h3>") 
+        return HttpResponse("<H1>Error!</H1><h2>Sorry: User or Passwd (or both) are not correct!!</h2><h3>Please, go back, delete job & upload new job again...</h3>") 
     return redirect('job-list')
 
 @login_required
