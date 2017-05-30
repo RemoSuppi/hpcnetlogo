@@ -2,7 +2,7 @@
 
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, render_to_response
 from django.views.generic.list import ListView
 from django.views.generic.edit import DeleteView
 from django.contrib.auth.decorators import login_required
@@ -28,7 +28,7 @@ def run(request, id):
                                           data.cluster_number)
         data.save()
     except Exception as error:
-        return HttpResponse("<H1>Error!</H1><h2>Sorry: User or Passwd (or both) are not correct!!</h2><h3>Please, go back, delete job & upload new job again...</h3>") 
+        return render_to_response('job_manager/job_error.html', {'job':id}); 
     return redirect('job-list')
 
 @login_required
