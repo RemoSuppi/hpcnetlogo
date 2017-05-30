@@ -1,0 +1,19 @@
+
+# Version 0.1
+startp=$(date +%s.%N)
+
+echo $startp
+java -Xmx2048m -XX:MaxPermSize=512m -Xms512m -Dfile.encoding=UTF-8  -Djava.util.prefs.userRoot=/home/netlogo/.java -cp NetLogo.jar org.nlogo.headless.Main --model /home/netlogo/netlogo-sge/job-1/1/Fire-e1_9R0vTab.nlogo --setup-file /home/netlogo/netlogo-sge/job-1/1/$1 --table /home/netlogo/netlogo-sge/job-1/1/output/$2 
+
+#optional: --threads {{thread_count}
+
+
+endp=$(date +%s.%N)
+echo $endp
+
+runtime=$(echo $endp - $startp | bc)
+
+echo "Partial Runtime $1: $runtime"
+
+
+

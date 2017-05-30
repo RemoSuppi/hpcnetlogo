@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!DOCTYPE experiments SYSTEM "behaviorspace.dtd">
+<experiments>
+<experiment name="e1" repetitions="3" runMetricsEveryStep="true">
+    <setup>setup</setup>
+    <go>go</go>
+    <metric>count turtles</metric>
+    <enumeratedValueSet variable="size_of_patch">
+      <value value="1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="world_size_X">
+      <value value="200"/>
+    </enumeratedValueSet>
+    
+    <enumeratedValueSet variable="world_size_Y">
+      <value value="200"/>
+    </enumeratedValueSet>
+  <enumeratedValueSet variable="density"><value value="32.0"/></enumeratedValueSet></experiment></experiments>
