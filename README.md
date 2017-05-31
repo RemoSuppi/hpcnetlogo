@@ -41,7 +41,7 @@ systemctl restart apache2
 3. Open a browser in http://127.0.0.1. 
 If you use a MV (eg Virtualbox) without GUI in Linux, you can map the port 80 on NAT network adapter (Port Forwarding) to port 80 of the host and using the host browser in the same URL. For errors consult */var/log/apache2/error.log*.
 
-* The user & passwd to upload files are **netlogo** for both. The Django Admin (http://127.0.0.1/admin) user & password are **hpcnetlogo** for both. The parameters of Upload experiment page are:
+* The user & passwd to upload files are **hpcnetlogo** for both. Also, the Django Admin (http://127.0.0.1/admin) user & password are **hpcnetlogo** for both. The parameters of Upload experiment page are:
   * **Model**: the nlogo file with the BS experiment included.
   * **Experiment name**: the experiment name defined in the BS.
   * **Run separate repetitions?**: if marked the repetitions of the BS will be executed in a different node of the Sge cluster.
