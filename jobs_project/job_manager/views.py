@@ -57,3 +57,9 @@ class JobListView(ListView):
     """ Shows List """
     model = Job
 
+def help(request):
+    return render_to_response('job_manager/job_help.html')
+
+def help2(request):
+    return render_to_response('job_manager/job_help2.html')
+

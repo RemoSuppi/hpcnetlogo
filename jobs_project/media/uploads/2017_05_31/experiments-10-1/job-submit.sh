@@ -5,7 +5,7 @@ start=$(date +%s.%N)
 
 for ((i=0;i<3;i++))
 do
-qsub /home/netlogo/netlogo-sge/job-8/2/sge-script2.sh e1$i.xml e1$i.csv
+qsub /home/netlogo/netlogo-sge/job-10/1/sge-script2.sh e1$i.xml e1$i.csv
 done
 
 end=$(date +%s.%N)

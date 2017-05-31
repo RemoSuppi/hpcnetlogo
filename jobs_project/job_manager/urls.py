@@ -2,7 +2,7 @@
 
 from django.conf.urls import url
 
-from .views import JobListView, upload_job_view, stop, JobDeleteView, run
+from .views import JobListView, upload_job_view, stop, JobDeleteView, run, help, help2
 
 urlpatterns = [
     url(r'^$', JobListView.as_view(), name='job-list'),
@@ -10,4 +10,6 @@ urlpatterns = [
     url(r'^job/(?P<pk>[0-9]+)/delete/$', JobDeleteView.as_view(), name='del-job'),
     url(r'^job/(?P<id>[0-9]+)/run/$', run, name='run-job'),
     url(r'^job/(?P<id>[0-9]+)/stop/$', stop, name='stop-job'),
+    url(r'^upload/help/$', help, name='job-help'),
+    url(r'^help/$', help2, name='job-help2'),
 ]
